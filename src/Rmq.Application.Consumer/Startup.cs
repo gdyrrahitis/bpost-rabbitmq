@@ -8,7 +8,6 @@ using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
 using Rmq.Application.Consumer.CommandHandlers;
 using Rmq.Common.Commands;
-using Rmq.Consumer;
 
 namespace Rmq.Application.Consumer
 {

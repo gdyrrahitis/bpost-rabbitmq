@@ -5,9 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
 using Rmq.Application.BackgroundTasks;
+using Rmq.Application.Producer;
 using Rmq.Common;
 using Rmq.Common.IntegrationEvents;
-using Rmq.Producer;
 
 namespace Rmq.Application
 {

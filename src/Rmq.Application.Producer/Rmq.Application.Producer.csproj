@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rmq.Common\Rmq.Common.csproj" />
-    <ProjectReference Include="..\Rmq.Producer\Rmq.Producer.csproj" />
   </ItemGroup>
 
 </Project>

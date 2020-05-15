@@ -3,14 +3,14 @@ using RabbitMQ.Client;
 using Rmq.Common;
 using Rmq.Common.IntegrationEvents;
 
-namespace Rmq.Producer
+namespace Rmq.Application.Producer
 {
     public class LogProducer : ProducerBase<LogIntegrationEvent>
     {
         public LogProducer(
-            ConnectionFactory connectionFactory, 
-            ILogger<RabbitMqClientBase> logger, 
-            ILogger<ProducerBase<LogIntegrationEvent>> producerBaseLogger) : 
+            ConnectionFactory connectionFactory,
+            ILogger<RabbitMqClientBase> logger,
+            ILogger<ProducerBase<LogIntegrationEvent>> producerBaseLogger) :
             base(connectionFactory, logger, producerBaseLogger)
         {
         }

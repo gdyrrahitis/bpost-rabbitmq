@@ -16,7 +16,7 @@ services:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
 
-  rmq.application:
+  rmq.application.producer:
     restart: on-failure
     environment:
       - ASPNETCORE_ENVIRONMENT=Development

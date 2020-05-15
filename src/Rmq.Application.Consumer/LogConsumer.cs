@@ -9,16 +9,16 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Rmq.Consumer
+namespace Rmq.Application.Consumer
 {
     public class LogConsumer : ConsumerBase, IHostedService
     {
         public LogConsumer(
-            IMediator mediator, 
-            ConnectionFactory connectionFactory, 
+            IMediator mediator,
+            ConnectionFactory connectionFactory,
             ILogger<LogConsumer> logConsumerLogger,
-            ILogger<ConsumerBase> consumerLogger, 
-            ILogger<RabbitMqClientBase> logger) : 
+            ILogger<ConsumerBase> consumerLogger,
+            ILogger<RabbitMqClientBase> logger) :
             base(mediator, connectionFactory, consumerLogger, logger)
         {
             try
