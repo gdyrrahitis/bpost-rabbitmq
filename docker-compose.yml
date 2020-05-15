@@ -1,0 +1,17 @@
+version: '2.4'
+
+services:
+  rabbit:
+    image: rabbitmq:3-management-alpine
+
+  rmq.application:
+    image: ${DOCKER_REGISTRY-}rmqapplication
+    build:
+      context: .
+      dockerfile: src/Rmq.Application/Dockerfile
+
+  rmq.application.consumer:
+    image: ${DOCKER_REGISTRY-}rmqapplicationconsumer
+    build:
+      context: .
+      dockerfile: src/Rmq.Application.Consumer/Dockerfile

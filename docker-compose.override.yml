@@ -1,0 +1,50 @@
+version: '2.4'
+
+services:
+  rabbit:
+    restart: always
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    healthcheck:
+      test: [ "CMD", "nc", "-z", "rabbit", "5672" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    environment:
+      - RABBITMQ_DEFAULT_VHOST=CUSTOM_HOST
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+
+  rmq.application:
+    restart: on-failure
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=44303
+    ports:
+      - "56719:80"
+      - "44303:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on:
+      rabbit:
+        condition: service_healthy
+
+
+  rmq.application.consumer:
+    restart: on-failure
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=44303
+    ports:
+      - "56720:80"
+      - "44304:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on:
+      rabbit:
+        condition: service_healthy
