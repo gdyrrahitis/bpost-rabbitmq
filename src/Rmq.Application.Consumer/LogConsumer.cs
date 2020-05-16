@@ -13,6 +13,8 @@ namespace Rmq.Application.Consumer
 {
     public class LogConsumer : ConsumerBase, IHostedService
     {
+        protected override string QueueName => "CUSTOM_HOST.log.message";
+
         public LogConsumer(
             IMediator mediator,
             ConnectionFactory connectionFactory,
@@ -25,7 +27,7 @@ namespace Rmq.Application.Consumer
             {
                 var consumer = new AsyncEventingBasicConsumer(Channel);
                 consumer.Received += OnEventReceived<LogCommand>;
-                Channel.BasicConsume(queue: LoggerQueue, autoAck: false, consumer: consumer);
+                Channel.BasicConsume(queue: QueueName, autoAck: false, consumer: consumer);
             }
             catch (Exception ex)
             {
@@ -33,10 +35,7 @@ namespace Rmq.Application.Consumer
             }
         }
 
-        public virtual Task StartAsync(CancellationToken cancellationToken)
-        {
-            return Task.CompletedTask;
-        }
+        public virtual Task StartAsync(CancellationToken cancellationToken) => Task.CompletedTask;
 
         public virtual Task StopAsync(CancellationToken cancellationToken)
         {

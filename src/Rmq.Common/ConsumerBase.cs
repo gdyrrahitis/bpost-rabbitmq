@@ -9,10 +9,11 @@ using RabbitMQ.Client.Events;
 
 namespace Rmq.Common
 {
-    public class ConsumerBase : RabbitMqClientBase
+    public abstract class ConsumerBase : RabbitMqClientBase
     {
         private readonly IMediator _mediator;
         private readonly ILogger<ConsumerBase> _logger;
+        protected abstract string QueueName { get; }
 
         public ConsumerBase(
             IMediator mediator,

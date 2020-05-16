@@ -14,5 +14,8 @@ namespace Rmq.Application.Producer
             base(connectionFactory, logger, producerBaseLogger)
         {
         }
+
+        protected override string ExchangeName => "CUSTOM_HOST.LoggerExchange";
+        protected override string RoutingKeyName => "log.message";
     }
 }

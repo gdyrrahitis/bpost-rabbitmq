@@ -14,6 +14,9 @@ namespace Rmq.Common
     public abstract class ProducerBase<T> : RabbitMqClientBase, IRabbitMqProducer<T>
     {
         private readonly ILogger<ProducerBase<T>> _logger;
+        protected abstract string ExchangeName { get; }
+        protected abstract string RoutingKeyName { get; }
+
 
         protected ProducerBase(
             ConnectionFactory connectionFactory,
@@ -26,7 +29,7 @@ namespace Rmq.Common
             try
             {
                 var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(@event));
-                Channel.BasicPublish(exchange: LoggerExchange, routingKey: LoggerQueueAndExchangeRoutingKey, body: body);
+                Channel.BasicPublish(exchange: ExchangeName, routingKey: RoutingKeyName, body: body);
             }
             catch (Exception ex)
             {
