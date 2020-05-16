@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
+using Rmq.Application.Producer.IntegrationEvents;
 using Rmq.Common;
-using Rmq.Common.IntegrationEvents;
 
 namespace Rmq.Application.Producer
 {

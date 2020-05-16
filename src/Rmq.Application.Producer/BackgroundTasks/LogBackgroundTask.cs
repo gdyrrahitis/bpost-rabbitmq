@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
+using Rmq.Application.Producer.IntegrationEvents;
 using Rmq.Common;
-using Rmq.Common.IntegrationEvents;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

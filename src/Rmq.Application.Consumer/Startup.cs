@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
-using Rmq.Application.Consumer.CommandHandlers;
-using Rmq.Common.Commands;
+using Rmq.Application.Consumer.Commands;
+using Rmq.Application.Consumer.Commands.Handlers;
 
 namespace Rmq.Application.Consumer
 {

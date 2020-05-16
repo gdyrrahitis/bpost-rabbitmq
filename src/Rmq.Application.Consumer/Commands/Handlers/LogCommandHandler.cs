@@ -1,10 +1,9 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using Rmq.Common.Commands;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Rmq.Application.Consumer.CommandHandlers
+namespace Rmq.Application.Consumer.Commands.Handlers
 {
     public class LogCommandHandler : IRequestHandler<LogCommand>
     {

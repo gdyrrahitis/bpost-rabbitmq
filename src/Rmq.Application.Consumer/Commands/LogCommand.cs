@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using System;
 
-namespace Rmq.Common.Commands
+namespace Rmq.Application.Consumer.Commands
 {
     public class LogCommand : IRequest<Unit>
     {

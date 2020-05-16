@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Rmq.Common.IntegrationEvents
+namespace Rmq.Application.Producer.IntegrationEvents
 {
     public class LogIntegrationEvent
     {
