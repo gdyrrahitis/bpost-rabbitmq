@@ -32,7 +32,6 @@ services:
       rabbit:
         condition: service_healthy
 
-
   rmq.application.consumer:
     restart: on-failure
     environment:

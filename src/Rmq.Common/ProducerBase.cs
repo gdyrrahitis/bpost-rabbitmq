@@ -17,7 +17,6 @@ namespace Rmq.Common
         protected abstract string ExchangeName { get; }
         protected abstract string RoutingKeyName { get; }
 
-
         protected ProducerBase(
             ConnectionFactory connectionFactory,
             ILogger<RabbitMqClientBase> logger,

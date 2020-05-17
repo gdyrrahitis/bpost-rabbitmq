@@ -5,7 +5,7 @@ services:
     image: rabbitmq:3-management-alpine
 
   rmq.application.producer:
-    image: ${DOCKER_REGISTRY-}rmqapplication
+    image: ${DOCKER_REGISTRY-}rmqapplicationproducer
     build:
       context: .
       dockerfile: src/Rmq.Application.Producer/Dockerfile

@@ -18,7 +18,8 @@ namespace Rmq.Application.Consumer
             services
                 .AddMediatR(Assembly.GetExecutingAssembly())
                 .AddTransient<IRequestHandler<LogCommand, Unit>, LogCommandHandler>()
-                .AddHostedService<LogConsumer>().AddSingleton(serviceProvider =>
+                .AddHostedService<LogConsumer>()
+                .AddSingleton(serviceProvider =>
                 {
                     var uri = new Uri("amqp://guest:guest@rabbit:5672/CUSTOM_HOST");
                     return new ConnectionFactory
