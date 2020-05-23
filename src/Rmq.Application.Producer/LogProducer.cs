@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System;
+using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using Rmq.Application.Producer.IntegrationEvents;
 using Rmq.Common;
@@ -17,5 +18,6 @@ namespace Rmq.Application.Producer
 
         protected override string ExchangeName => "CUSTOM_HOST.LoggerExchange";
         protected override string RoutingKeyName => "log.message";
+        protected override string AppId => "LogProducer";
     }
 }

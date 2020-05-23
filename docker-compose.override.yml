@@ -1,6 +1,12 @@
 version: '2.4'
 
 services:
+  tcpdump:
+    image: kaazing/tcpdump
+    network_mode: "host"
+    volumes:
+      - ./tcpdump:/tcpdump
+
   rabbit:
     restart: always
     ports:
